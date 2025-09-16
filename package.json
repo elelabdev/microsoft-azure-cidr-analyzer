@@ -1,0 +1,84 @@
+{
+  "name": "microsoft-azure-cidr-analyzer",
+  "displayName": "Microsoft Azure CIDR Analyzer",
+  "description": "Search Microsoft Azure subscriptions for IP prefixes using Azure Resource Graph directly from Visual Studio Code.",
+  "version": "0.0.1",
+  "extensionKind": [
+    "workspace",
+    "ui"
+  ],
+  "publisher": "elelabdev",
+  "pricing": "Free",
+  "category": "Formatters, Others",
+  "icon": "media/img/icons/microsoft-azure-cidr-icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elelabdev/microsoft-azure-cidr-analyzer"
+  },
+  "bugs": {
+    "url": "https://github.com/elelabdev/microsoft-azure-cidr-analyzer/issues"
+  },
+  "sponsor": {
+    "url": "https://github.com/sponsors/elelabdev"
+  },
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "azure",
+    "cidr",
+    "network",
+    "resource graph",
+    "ip address",
+    "cloud"
+  ],
+  "activationEvents": [
+    "onCommand:azureCidrAnalyzer.open"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "azureCidrAnalyzer.open",
+        "title": "Microsoft Azure CIDR Analyzer"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Microsoft Azure CIDR Analyzer",
+      "properties": {
+        "azureCidrAnalyzer.azureGraphToken": {
+          "type": "string",
+          "default": "",
+          "description": "Bearer token with access to Azure Resource Graph (management.azure.com).",
+          "markdownDescription": "Generate a token via Azure CLI: `az account get-access-token --resource https://management.azure.com/ --query accessToken -o tsv` and paste it here.",
+          "scope": "machine"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^20.17.47",
+    "@types/vscode": "^1.99.0",
+    "@typescript-eslint/eslint-plugin": "^8.28.0",
+    "@typescript-eslint/parser": "^8.28.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.23.0",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@vscode-elements/elements": "^1.15.0"
+  }
+}

@@ -1,0 +1,49 @@
+name: "Bug report"
+description: Report a problem with Microsoft Azure CIDR Analyzer
+labels: [bug]
+title: "[Bug]: "
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug! Please share as much detail as you can so we can reproduce and fix the issue quickly.
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Provide a clear and concise description of the problem.
+      placeholder: When I run the command...
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Provide numbered steps to reproduce the behaviour.
+      placeholder: |
+        1. Open ...
+        2. Run ...
+        3. Observe ...
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+  - type: input
+    id: version
+    attributes:
+      label: Extension version
+      description: You can find this under Extensions > Microsoft Azure CIDR Analyzer.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment details
+      description: Include OS, VS Code version, and any other relevant context.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Paste any relevant log output from the Developer Tools console or command output.
+      render: shell

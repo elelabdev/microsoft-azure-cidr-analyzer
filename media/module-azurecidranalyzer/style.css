@@ -1,0 +1,167 @@
+/*****************************************************************************
+ *   Extension:   Microsoft Azure CIDRs Analyzer                             *
+ *   Author:      elelabdev                                                  *
+ *   Description: Query right from Visual Studio Code all Microsoft Azure    *
+ *                subscriptions and search for specific CIDRs in use.        *
+ *   Github:      https://github.com/elelabdev/microsoft-azure-cidr-analyzer *
+ *                                                                           *
+ *   Icon Author: elelab                                                     *
+ *                                                                           *
+ *   Copyright (C) 2025 elelab                                               *
+ *   https://www.elelab.dev                                                  *
+ *                                                                           *
+ *   Licensed under the MIT License. See LICENSE file in the project         *
+ *   root for details.                                                       *
+ ****************************************************************************/
+
+/*  media/module-azurecidranalyzer/style.css */
+
+#status {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  min-height: 1.5rem;
+}
+
+#status.loading {
+  color: var(--vscode-descriptionForeground);
+}
+
+#status.error {
+  color: var(--vscode-errorForeground);
+}
+
+#status.info {
+  color: var(--vscode-editorInfoForeground);
+}
+
+#status.warning {
+  color: var(--vscode-editorWarningForeground);
+}
+
+#results vscode-table {
+  margin-bottom: 1rem;
+}
+
+#results .empty-state {
+  margin-top: 1rem;
+  color: var(--vscode-descriptionForeground);
+}
+
+.input-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.subscription-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.6rem;
+  margin-bottom: 0.6rem;
+  border: 1px solid var(--vscode-editorWidget-border, rgba(128, 128, 128, 0.35));
+  border-radius: 6px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.subscription-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.subscription-option input[type="checkbox"] {
+  margin: 0;
+}
+
+#subscriptions {
+  margin-bottom: 1rem;
+  border: 1px solid var(--vscode-editorWidget-border, rgba(128, 128, 128, 0.35));
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.subscription-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--vscode-editorWidget-border, rgba(128, 128, 128, 0.2));
+}
+
+.subscription-item:last-child {
+  border-bottom: none;
+}
+
+.status-icon {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  position: relative;
+}
+
+.status-icon.loading {
+  border: 2px solid var(--vscode-descriptionForeground);
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.status-icon.success::after {
+  content: '\2713';
+  color: var(--vscode-testing-iconPassed);
+  font-weight: bold;
+  position: absolute;
+  top: -2px;
+  left: 0;
+}
+
+.status-icon.error::after {
+  content: '\26A0';
+  color: var(--vscode-testing-iconErrored, var(--vscode-errorForeground));
+  font-weight: bold;
+  position: absolute;
+  top: -2px;
+  left: -1px;
+}
+
+.subscription-label {
+  flex-grow: 1;
+  font-weight: 600;
+}
+
+.subscription-note {
+  color: var(--vscode-descriptionForeground);
+  font-size: 0.85rem;
+}
+
+.actions-row {
+  display: flex;
+  flex-direction: row;
+  gap: 0.6rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.layout {
+  gap: 1rem;
+}
+
+.middle {
+  min-height: 200px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
